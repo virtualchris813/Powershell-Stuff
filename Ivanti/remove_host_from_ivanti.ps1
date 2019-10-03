@@ -9,11 +9,7 @@ if ([string]::IsNullOrEmpty($vmname) -Or [string]::IsNullOrEmpty($mgname))
     exit 1
 }
 
-# If you use the group default creds, use this command
-Add-MachineGroupItem -Name $mgname -EndpointName $vmname
-
-# If you use multiple creds, use this following line and add an input param for it
-#Add-MachineGroupItem -Name $mgname -EndpointName $vmname -CredentialFriendlyName $credname
+Remove-MachineGroupItem -Name $mgname -EndpointName $vmname
 
 # This script requires you to run:
 #   Set-ExecutionPolicy Unrestricted
